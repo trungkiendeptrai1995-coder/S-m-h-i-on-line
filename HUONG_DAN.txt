@@ -1,0 +1,22 @@
+SÁM HỐI ONLINE – BẢN CÀI TRÊN ANDROID (PWA)
+
+Đây là bộ ứng dụng web có thể cài lên màn hình Android như một ứng dụng.
+Để cài PWA, các tệp phải được đưa lên một địa chỉ HTTPS. Mở file HTML trực tiếp từ điện thoại không kích hoạt đầy đủ chức năng cài đặt/offline.
+
+CÁCH DÙNG SAU KHI CÓ ĐƯỜNG DẪN HTTPS:
+1. Mở đường dẫn ứng dụng bằng Chrome trên Android.
+2. Chọn menu ⋮ > Cài đặt ứng dụng (Install app) hoặc Thêm vào màn hình chính.
+3. Xác nhận Cài đặt.
+4. Mở biểu tượng Sám Hối trên màn hình chính.
+
+CHỨC NĂNG HIỆN CÓ:
+- Đếm số lần niệm Phật.
+- Màn hình lời sám hối và phát nguyện.
+- Nút dâng hoa, thắp đèn, thỉnh chuông mô phỏng.
+- Giao diện dọc phù hợp điện thoại, chế độ toàn màn hình.
+- Có bộ nhớ đệm offline sau lần đầu tải khi được phục vụ qua HTTPS.
+
+LƯU Ý:
+- Đây chưa phải APK Android độc lập. Đây là PWA; cần hosting HTTPS để cài đúng cách.
+- Chưa kết nối bình luận/quà tặng TikTok. Việc hiển thị trên LIVE cần tính năng chia sẻ màn hình điện thoại nếu tài khoản/phiên bản TikTok hỗ trợ, hoặc dùng TikTok LIVE Studio trên máy tính.
+- Không nhập thông tin cá nhân hay thanh toán vào ứng dụng.
