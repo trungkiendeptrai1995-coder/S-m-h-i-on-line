@@ -64,6 +64,6 @@ $('apply').onclick=()=>{show('LỜI SÁM HỐI – PHÁT NGUYỆN',$('custom').v
 $('full').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
 $('bell').onclick=()=>{try{const C=window.AudioContext||window.webkitAudioContext,c=new C(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.setValueAtTime(660,c.currentTime);o.frequency.exponentialRampToValueAtTime(330,c.currentTime+1.7);g.gain.setValueAtTime(.001,c.currentTime);g.gain.exponentialRampToValueAtTime(.18,c.currentTime+.04);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+2.6);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+2.7);say('Đã phát tiếng chuông mô phỏng.')}catch(e){say('Trình duyệt chưa hỗ trợ âm thanh.')}}
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
-$('bell').onclick=()=>{const a=new Audio('./mandakimdk-big-bellburmese-367944.mp3');a.play();setTimeout(()=>{a.pause();a.currentTime=0},15000);say('Đang thỉnh chuông chùa.');};
+$('bell').onclick=()=>{const a=new Audio('./mandakimdk-big-bellburmese-367944 (2).mp3');a.play();setTimeout(()=>{a.pause();a.currentTime=0},15000);say('Đang thỉnh chuông chùa.');};
 </script>
 </body></html>
