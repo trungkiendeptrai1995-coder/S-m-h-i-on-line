@@ -1,0 +1,19 @@
+{
+  "name": "Sám Hối Online",
+  "short_name": "Sám Hối",
+  "description": "Lễ Phật, sám hối, niệm Phật và phát nguyện",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#100b0a",
+  "theme_color": "#2a130b",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
