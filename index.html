@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2a130b">
+<meta name="description" content="Ứng dụng Sám Hối Online - lễ Phật, sám hối, niệm Phật và phát nguyện.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Sám Hối Online</title>
+<style>
+:root{--gold:#f6d78b;--gold2:#b77b28;--red:#5a170e;--cream:#fff1d0}
+*{box-sizing:border-box}body{margin:0;color:var(--cream);font-family:Georgia,serif;background:radial-gradient(ellipse at 50% 12%,#82542b 0,#351b17 43%,#100b0a 100%);min-height:100vh}
+header{text-align:center;padding:18px 12px 10px}h1{margin:0;color:var(--gold);font-size:clamp(27px,7vw,42px);text-shadow:0 0 20px #ffcb65;letter-spacing:1px}.sub{font-size:13px;margin-top:6px;color:#f5dfb0}
+main{max-width:760px;margin:auto;padding:8px 12px 28px}.hero{border:1px solid #d6a94e88;border-radius:22px;background:linear-gradient(#321810d9,#160e0c);padding:16px;text-align:center;box-shadow:0 12px 34px #0009}
+.glow{width:min(76vw,310px);aspect-ratio:1;margin:0 auto 5px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff5d5 0,#f9d77b 7%,#d99c3f66 27%,#c17a2a22 55%,transparent 70%);animation:shine 4s ease-in-out infinite}
+.buddha{font-size:clamp(115px,34vw,190px);filter:drop-shadow(0 10px 14px #0009)}
+@keyframes shine{50%{filter:brightness(1.25) drop-shadow(0 0 25px #f8d77b)}}
+h2{font-size:22px;color:var(--gold);margin:7px 0}.verse{font-size:16px;line-height:1.65;white-space:pre-line;min-height:58px}
+.count{font:bold 48px Arial;color:var(--gold);margin:6px}.hint{font:12px Arial;color:#d8c49c}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}.btn{border:1px solid #e2b75e;border-radius:13px;background:linear-gradient(145deg,#762b18,#35150e);color:#fff0c9;padding:13px 8px;font-weight:bold;font-size:15px;min-height:58px;box-shadow:0 4px 12px #0006}.btn:active{transform:scale(.98)}.primary{background:linear-gradient(145deg,#d6a445,#8d4b16);color:#261307}.wide{width:100%;margin-top:10px}
+.panel{margin-top:12px;padding:14px;border:1px solid #c39445;border-radius:16px;background:#1d110e}.panel h3{margin:0 0 10px;color:var(--gold)}textarea,input{width:100%;padding:11px;border-radius:10px;border:1px solid #9d783e;background:#2b1a14;color:#fff0d0;font:15px Arial;margin:5px 0 10px}label{font:13px Arial;color:#ead8b4}
+footer{text-align:center;color:#cbb993;font:11px Arial;padding:12px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header><h1>🙏 SÁM HỐI ONLINE 🙏</h1><div class="sub">Một lòng hướng Phật · Thành tâm sám hối · Phát nguyện tu tập</div></header>
+<main>
+<section class="hero">
+<div class="glow"><div class="buddha">🪷</div></div>
+<h2 id="heading">LỄ PHẬT – SÁM HỐI</h2>
+<div class="verse" id="verse">Con xin thành tâm nhìn lại những điều chưa đúng trong lời nói, suy nghĩ và hành động.
+Nguyện sửa đổi bản thân, sống thiện lành và không tái phạm.</div>
+<div class="count" id="count">0</div><div class="hint">LẦN NIỆM PHẬT</div>
+</section>
+<section class="grid">
+<button class="btn primary" id="chant">📿 Niệm Phật +1</button>
+<button class="btn" id="repent">🙏 Sám hối</button>
+<button class="btn" id="flower">🪷 Dâng hoa</button>
+<button class="btn" id="lamp">🕯️ Thắp đèn</button>
+<button class="btn" id="bell">🔔 Thỉnh chuông</button>
+<button class="btn" id="reset">↺ Đặt lại số đếm</button>
+</section>
+<section class="panel">
+<h3>📜 Lời sám hối và phát nguyện</h3>
+<label for="custom">Anh có thể sửa lời nguyện hiển thị:</label>
+<textarea id="custom" rows="4">Con xin thành tâm nhìn lại những điều chưa đúng trong lời nói, suy nghĩ và hành động. Nguyện sửa đổi bản thân, sống thiện lành và không tái phạm.</textarea>
+<button class="btn wide primary" id="apply">Cập nhật lời nguyện</button>
+<button class="btn wide" id="full">⛶ Toàn màn hình</button>
+<div class="hint" id="status" aria-live="polite">Ứng dụng đã sẵn sàng.</div>
+</section>
+</main>
+<footer>Ứng dụng hỗ trợ thực hành thiện lành và tự quán chiếu. Không quy đổi quà tặng thành công đức hay hứa hẹn hết nghiệp.</footer>
+<script>
+let n=0;const $=x=>document.getElementById(x),say=x=>$('status').textContent=x;
+function show(t,v){$('heading').textContent=t;$('verse').textContent=v}
+$('chant').onclick=()=>{n++;$('count').textContent=n;show('NAM MÔ A DI ĐÀ PHẬT','Nam Mô A Di Đà Phật');say('Đã ghi nhận '+n+' lần niệm Phật.')};
+$('repent').onclick=()=>{show('THÀNH TÂM SÁM HỐI',$('custom').value);say('Nguyện nhận lỗi, sửa lỗi và không tái phạm.')};
+$('flower').onclick=()=>{show('DÂNG HOA CÚNG DƯỜNG','Nguyện đem lòng thành kính hướng về Tam Bảo. Nguyện sống từ bi, tỉnh thức và làm những việc thiện lành.');say('Đã chọn lời nguyện dâng hoa.')};
+$('lamp').onclick=()=>{show('THẮP ĐÈN TRÍ TUỆ','Nguyện ánh sáng trí tuệ soi đường, giúp con nhận ra điều sai và tinh tấn sửa đổi.');say('Đã chọn lời nguyện thắp đèn.')};
+$('reset').onclick=()=>{n=0;$('count').textContent=n;say('Đã đặt lại số đếm về 0.')};
+$('apply').onclick=()=>{show('LỜI SÁM HỐI – PHÁT NGUYỆN',$('custom').value);say('Đã cập nhật lời nguyện.')};
+$('full').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
+$('bell').onclick=()=>{try{const C=window.AudioContext||window.webkitAudioContext,c=new C(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.setValueAtTime(660,c.currentTime);o.frequency.exponentialRampToValueAtTime(330,c.currentTime+1.7);g.gain.setValueAtTime(.001,c.currentTime);g.gain.exponentialRampToValueAtTime(.18,c.currentTime+.04);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+2.6);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+2.7);say('Đã phát tiếng chuông mô phỏng.')}catch(e){say('Trình duyệt chưa hỗ trợ âm thanh.')}}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
+</script>
+</body></html>
